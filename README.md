@@ -1,4 +1,34 @@
 # draught-cli
+A Visual Studio Console Application to draw shapes in the terminal (CLI).
+
+## Run App
+``dotnet run``
+
+## Run Tests
+``dotnet test --logger "console;verbosity=detailed"``
+
+Or, to save to a file: ``dotnet test --logger "trx;LogFileName=testResults.xml"``
+
+## Compile App
+``dotnet build``
+``dotnet run --project draught_cli`
+
+## Compile App as EXE
+``csc Program.cs``
+
+***Publish App:*** ``dotnet publish --configuration Release``
+
+**Run published app**
+1. In Explorer, right-click the publish folder (Ctrl-click on macOS), and select Open in Integrated Terminal.
+2. Context menu showing Open in Terminal
+3. Run the app by using the executable, either by browser to the file in the file explorer, or by using the terminal:
+- On Windows, enter .\HelloWorld.exe and press Enter.
+- On Linux or Mac, enter ./HelloWorld and press Enter.
+4. Enter a name in response to the prompt, and press any key to exit.
+
+**DLL:** On any platform, run the app by using the dotnet command:
+- Enter dotnet HelloWorld.dll and press Enter.
+- Enter a name in response to the prompt, and press any key to exit.
 
 ## Demonstration of SOLID principles
 Develop a Visual Studio Console Application which simulates a drawing package. Your application should support the following 5 drawing primitives (we'll call them widgets):
