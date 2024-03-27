@@ -52,5 +52,28 @@ namespace draught_cli.Tests
             // Assert
             ClassicAssert.AreEqual("Square (0,0) size=15", result);
         }
+
+        [Test]
+        public void EllipseSquare_ShouldNotBeNull()
+        {
+            // Arrange & Act
+            Ellipse ellipse = new Ellipse { X = 0, Y = 0, DiameterH = 30, DiameterV = 20 };
+            
+            // Assert
+            ClassicAssert.IsNotNull(ellipse);
+        }
+
+        [Test]
+        public void EllipseDraw_ShouldReturnExpectedString()
+        {
+            // Arrange
+            Ellipse ellipse = new Ellipse { X = 0, Y = 0, DiameterH = 30, DiameterV = 20 };
+
+            // Act
+            string result = ellipse.Draw();
+            
+            // Assert
+            ClassicAssert.AreEqual("Ellipse (0,0) diameterH=30 diameterV=20", result);
+        }
     }
 }
