@@ -27,7 +27,8 @@ namespace draught_cli.Tests
             string result = rectangle.Draw();
             
             // Assert
-            ClassicAssert.AreEqual("Rectangle (10,10) width=30 height=40", result);
+            string expected = "Rectangle (10,10) width=30 height=40";
+            ClassicAssert.AreEqual(expected, result);
         }
 
         [Test]
@@ -50,7 +51,8 @@ namespace draught_cli.Tests
             string result = square.Draw();
             
             // Assert
-            ClassicAssert.AreEqual("Square (0,0) size=15", result);
+            string expected = "Square (0,0) size=15";
+            ClassicAssert.AreEqual(expected, result);
         }
 
         [Test]
@@ -73,7 +75,8 @@ namespace draught_cli.Tests
             string result = ellipse.Draw();
             
             // Assert
-            ClassicAssert.AreEqual("Ellipse (0,0) diameterH=30 diameterV=20", result);
+            string expected = "Ellipse (0,0) diameterH=30 diameterV=20";
+            ClassicAssert.AreEqual(expected, result);
         }
 
         [Test]
@@ -96,7 +99,8 @@ namespace draught_cli.Tests
             string result = circle.Draw();
             
             // Assert
-            ClassicAssert.AreEqual("Circle (0,0) size=25", result);
+            string expected = "Circle (0,0) size=25";
+            ClassicAssert.AreEqual(expected, result);
         }
 
         [Test]
@@ -119,7 +123,58 @@ namespace draught_cli.Tests
             string result = textbox.Draw();
             
             // Assert
-            ClassicAssert.AreEqual("Textbox (0,0) width=50 height=30 Text=\"Lorem ipsum\"", result);
+            string expected = "Textbox (0,0) width=50 height=30 Text=\"Lorem ipsum\"";
+            ClassicAssert.AreEqual(expected, result);
+        }
+    }
+
+    [TestFixture]
+    public class DraughtEngineTests
+    {
+        [Test]
+        public void AddOneWidget_ShouldReturnOneWidget()
+        {
+            // Arrange
+            DraughtEngine drawing = new DraughtEngine();
+
+            // Act
+            drawing.AddWidget(new Rectangle { X = 10, Y = 10, Width = 30, Height = 40 });
+            var result = drawing.GetWidgets().Count;
+
+            // Assert
+            int expected = 1;
+            ClassicAssert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void AddTwoWidget_ShouldReturnTwoWidgets()
+        {
+            // Arrange
+            DraughtEngine drawing = new DraughtEngine();
+
+            // Act
+            drawing.AddWidget(new Rectangle { X = 10, Y = 10, Width = 30, Height = 40 });
+            drawing.AddWidget(new Circle { X = 0, Y = 0, Size = 25 });
+            var result = drawing.GetWidgets().Count;
+
+            // Assert
+            int expected = 2;
+            ClassicAssert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void AddRectangle_ShouldReturnRectangle()
+        {
+            // Arrange
+            DraughtEngine drawing = new DraughtEngine();
+
+            // Act
+            drawing.AddWidget(new Rectangle { X = 10, Y = 10, Width = 30, Height = 40 });
+            var result = drawing.GetWidgets()[0].ToString();
+
+            // Assert
+            string expected = "draught_cli.Rectangle";
+            ClassicAssert.AreEqual(expected, result);
         }
     }
 }
