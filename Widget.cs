@@ -27,4 +27,14 @@ namespace draught_cli
             return $"Rectangle ({X},{Y}) width={Width} height={Height}";
         }
     }
+
+    public class Square : Widget
+    {
+        public int Size { get; set; }
+
+        public override string Draw()
+        {
+            return $"Square ({X},{Y}) size={Size}";
+        }
+    }
 }
