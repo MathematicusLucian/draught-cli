@@ -1,5 +1,5 @@
 # draught-cli
-A Visual Studio Console Application to draw shapes in the terminal (CLI).
+A Visual Studio Console Application to draw shapes in the terminal (CLI). Supports various drawing primitives (widgets) such as Rectangle, Square, Ellipse, Circle, and Textbox.
 
 ## Run App
 ``dotnet run``
@@ -29,6 +29,30 @@ Or, to save to a file: ``dotnet test --logger "trx;LogFileName=testResults.xml"`
 **DLL:** On any platform, run the app by using the dotnet command:
 - Enter dotnet HelloWorld.dll and press Enter.
 - Enter a name in response to the prompt, and press any key to exit.
+
+## Design Decisions
+
+### Class Structure
+- Each widget (Rectangle, Square, Ellipse, Circle, Textbox) is represented by a separate class, inheriting from a common base class Widget.
+- A Drawing class is responsible for managing a collection of widgets and printing them out.
+
+### Input Validation
+- Checks are added to ensure that dimension parameters for widgets are integers and widths, heights, and diameters are positive. 
+- Error handling is implemented to manage cases where these checks fail.
+
+### Unit Tests
+- Unit tests have been implemented for each widget class and the Drawing class to ensure their correctness.
+- Test cases cover the creation and printing of each widget, as well as adding widgets to the drawing.
+
+## Potential Refinements
+- Implement more comprehensive unit tests, including edge cases and boundary conditions.
+- Add error handling mechanisms for invalid input parameters.
+- Implement rendering capabilities to visualize the drawing, even could use Unity.
+- Expand functionality to support additional drawing primitives or features such as lines, polygons, color, etc.
+- Enhance user interaction by allowing dynamic addition and manipulation of widgets.
+- Improve code documentation for better maintainability.
+
+# Challenge
 
 ## Demonstration of SOLID principles
 Develop a Visual Studio Console Application which simulates a drawing package. Your application should support the following 5 drawing primitives (we'll call them widgets):

@@ -63,7 +63,7 @@ namespace draught_cli
     {
         public int Width { get; set; }
         public int Height { get; set; }
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         public override string Draw()
         {
