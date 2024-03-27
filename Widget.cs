@@ -58,4 +58,16 @@ namespace draught_cli
             return $"Circle ({X},{Y}) size={Size}";
         }
     }
+
+    public class Textbox : Widget
+    {
+        public int Width { get; set; }
+        public int Height { get; set; }
+        public string Text { get; set; }
+
+        public override string Draw()
+        {
+            return $"Textbox ({X},{Y}) width={Width} height={Height} Text=\"{Text}\"";
+        }
+    }
 }
