@@ -19,8 +19,32 @@ namespace draught_cli
 
     public class Rectangle : Widget
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
+        private int width;
+        private int height;
+
+        public int Width 
+        { 
+            get => width;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("Width cannot be negative");
+                
+                width = value;
+            }
+        }
+
+        public int Height
+        {
+            get => height;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("Height cannot be negative");
+
+                height = value;
+            }
+        }
 
         public override string Draw()
         {
@@ -30,7 +54,19 @@ namespace draught_cli
 
     public class Square : Widget
     {
-        public int Size { get; set; }
+        private int size;
+
+        public int Size 
+        { 
+            get => size;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("Size cannot be negative");
+                
+                size = value;
+            }
+        }
 
         public override string Draw()
         {
@@ -40,8 +76,32 @@ namespace draught_cli
 
     public class Ellipse : Widget
     {
-        public int DiameterH { get; set; }
-        public int DiameterV { get; set; }
+        private int diameterH;
+        private int diameterV;
+
+        public int DiameterH 
+        { 
+            get => diameterH;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("DiameterH cannot be negative");
+                
+                diameterH = value;
+            }
+        }
+
+        public int DiameterV
+        {
+            get => diameterV;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("DiameterV cannot be negative");
+
+                diameterV = value;
+            }
+        }
 
         public override string Draw()
         {
@@ -51,7 +111,19 @@ namespace draught_cli
 
     public class Circle : Widget
     {
-        public int Size { get; set; }
+        private int size;
+
+        public int Size 
+        { 
+            get => size;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("Size cannot be negative");
+                
+                size = value;
+            }
+        }
 
         public override string Draw()
         {
@@ -61,9 +133,45 @@ namespace draught_cli
 
     public class Textbox : Widget
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
-        public string? Text { get; set; }
+        private int width;
+        private int height;
+        private string? text;
+
+        public int Width 
+        { 
+            get => width;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("Width cannot be negative");
+                
+                width = value;
+            }
+        }
+        
+        public int Height 
+        { 
+            get => height;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("Height cannot be negative");
+                
+                height = value;
+            }
+        }
+
+        public string? Text 
+        { 
+            get => text;
+            set
+            {
+                if (value == "")
+                    throw new ArgumentException("Text cannot be empty");
+                
+                text = value;
+            }
+        }
 
         public override string Draw()
         {
