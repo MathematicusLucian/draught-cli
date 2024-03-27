@@ -98,5 +98,28 @@ namespace draught_cli.Tests
             // Assert
             ClassicAssert.AreEqual("Circle (0,0) size=25", result);
         }
+
+        [Test]
+        public void Textbox_Init_ShouldNotBeNull()
+        {
+            // Arrange & Act
+            Textbox textbox = new Textbox { X = 0, Y = 0, Width = 50, Height = 30, Text = "Lorem ipsum" };
+            
+            // Assert
+            ClassicAssert.IsNotNull(textbox);
+        }
+
+        [Test]
+        public void Textbox_Draw_ShouldReturnExpectedString()
+        {
+            // Arrange
+            Textbox textbox = new Textbox { X = 0, Y = 0, Width = 50, Height = 30, Text = "Lorem ipsum" };
+
+            // Act
+            string result = textbox.Draw();
+            
+            // Assert
+            ClassicAssert.AreEqual("Textbox (0,0) width=50 height=30 Text=\"Lorem ipsum\"", result);
+        }
     }
 }
