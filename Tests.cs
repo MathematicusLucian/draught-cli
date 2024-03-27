@@ -8,7 +8,7 @@ namespace draught_cli.Tests
     public class WidgetTests
     {
         [Test]
-        public void CreateRectangle_ShouldNotBeNull()
+        public void Rectangle_Init_ShouldNotBeNull()
         {
             // Arrange & Act
             Rectangle rectangle = new Rectangle { X = 0, Y = 0, Width = 10, Height = 20 };
@@ -18,7 +18,7 @@ namespace draught_cli.Tests
         }
 
         [Test]
-        public void RectangleDraw_ShouldReturnExpectedString()
+        public void Rectangle_Draw_ShouldReturnExpectedString()
         {
             // Arrange
             Rectangle rectangle = new Rectangle { X = 10, Y = 10, Width = 30, Height = 40 };
@@ -31,7 +31,7 @@ namespace draught_cli.Tests
         }
 
         [Test]
-        public void CreateSquare_ShouldNotBeNull()
+        public void Square_Init_ShouldNotBeNull()
         {
             // Arrange & Act
             Square square = new Square { X = 0, Y = 0, Size = 15 };
@@ -41,7 +41,7 @@ namespace draught_cli.Tests
         }
 
         [Test]
-        public void SquareDraw_ShouldReturnExpectedString()
+        public void Square_Draw_ShouldReturnExpectedString()
         {
             // Arrange
             Square square = new Square { X = 0, Y = 0, Size = 15 };
@@ -54,7 +54,7 @@ namespace draught_cli.Tests
         }
 
         [Test]
-        public void EllipseSquare_ShouldNotBeNull()
+        public void Ellipse_Init_ShouldNotBeNull()
         {
             // Arrange & Act
             Ellipse ellipse = new Ellipse { X = 0, Y = 0, DiameterH = 30, DiameterV = 20 };
@@ -64,7 +64,7 @@ namespace draught_cli.Tests
         }
 
         [Test]
-        public void EllipseDraw_ShouldReturnExpectedString()
+        public void Ellipse_Draw_ShouldReturnExpectedString()
         {
             // Arrange
             Ellipse ellipse = new Ellipse { X = 0, Y = 0, DiameterH = 30, DiameterV = 20 };
@@ -74,6 +74,29 @@ namespace draught_cli.Tests
             
             // Assert
             ClassicAssert.AreEqual("Ellipse (0,0) diameterH=30 diameterV=20", result);
+        }
+
+        [Test]
+        public void Circle_Init_ShouldNotBeNull()
+        {
+            // Arrange & Act
+            Circle circle = new Circle { X = 0, Y = 0, Size = 25 };
+            
+            // Assert
+            ClassicAssert.IsNotNull(circle);
+        }
+
+        [Test]
+        public void Circle_Draw_ShouldReturnExpectedString()
+        {
+            // Arrange
+            Circle circle = new Circle { X = 0, Y = 0, Size = 25 };
+
+            // Act
+            string result = circle.Draw();
+            
+            // Assert
+            ClassicAssert.AreEqual("Circle (0,0) size=25", result);
         }
     }
 }
