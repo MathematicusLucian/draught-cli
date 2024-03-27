@@ -37,4 +37,15 @@ namespace draught_cli
             return $"Square ({X},{Y}) size={Size}";
         }
     }
+
+    public class Ellipse : Widget
+    {
+        public int DiameterH { get; set; }
+        public int DiameterV { get; set; }
+
+        public override string Draw()
+        {
+            return $"Ellipse ({X},{Y}) diameterH={DiameterH} diameterV={DiameterV}";
+        }
+    }
 }
