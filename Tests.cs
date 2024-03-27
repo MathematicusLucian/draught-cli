@@ -18,6 +18,30 @@ namespace draught_cli.Tests
         }
 
         [Test]
+        public void Rectangle_WithNegativeWidth_ShouldThrowArgumentException()
+        {
+            // Arrange & Act 
+            Rectangle rectangle = new Rectangle();
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                rectangle.Width = -10;
+            });
+        }
+
+        [Test]
+        public void Rectangle_WithNegativeHeight_ShouldThrowArgumentException()
+        {
+            // Arrange & Act
+            Rectangle rectangle = new Rectangle();
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                rectangle.Height = -20;
+            });
+        }
+
+        [Test]
         public void Rectangle_Draw_ShouldReturnExpectedString()
         {
             // Arrange
@@ -56,6 +80,18 @@ namespace draught_cli.Tests
         }
 
         [Test]
+        public void Square_WithNegativeSize_ShouldThrowArgumentException()
+        {
+            // Arrange & Act 
+            Square square = new Square();
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                square.Size = -10;
+            });
+        }
+
+        [Test]
         public void Ellipse_Init_ShouldNotBeNull()
         {
             // Arrange & Act
@@ -77,6 +113,30 @@ namespace draught_cli.Tests
             // Assert
             string expected = "Ellipse (0,0) diameterH=30 diameterV=20";
             ClassicAssert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void Ellipse_WithNegativeDiameterH_ShouldThrowArgumentException()
+        {
+            // Arrange & Act 
+            Ellipse ellipse = new Ellipse();
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                ellipse.DiameterH = -10;
+            });
+        }
+
+        [Test]
+        public void Ellipse_WithNegativeDiameterW_ShouldThrowArgumentException()
+        {
+            // Arrange & Act
+            Ellipse ellipse = new Ellipse();
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                ellipse.DiameterV = -20;
+            });
         }
 
         [Test]
@@ -104,6 +164,18 @@ namespace draught_cli.Tests
         }
 
         [Test]
+        public void Circle_WithNegativeSize_ShouldThrowArgumentException()
+        {
+            // Arrange & Act 
+            Circle circle = new Circle();
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                circle.Size = -10;
+            });
+        }
+
+        [Test]
         public void Textbox_Init_ShouldNotBeNull()
         {
             // Arrange & Act
@@ -125,6 +197,18 @@ namespace draught_cli.Tests
             // Assert
             string expected = "Textbox (0,0) width=50 height=30 Text=\"Lorem ipsum\"";
             ClassicAssert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void Textbox_WithEmptyString_ShouldThrowArgumentException()
+        {
+            // Arrange & Act 
+            Textbox textbox = new Textbox();
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                textbox.Text = "";
+            });
         }
     }
 
